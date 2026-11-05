@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日黑料大赛入口-黑料大赛入口地址_每日黑料大赛在线入口_最新黑料大赛导航</title>
+<meta name="description" content="每日黑料大赛入口是本站的固定导航页，提供每日黑料大赛入口地址、在线入口与最新黑料大赛导航说明，帮助访问者快速找到每日黑料大赛入口并了解参赛与浏览须知。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141418'/%3E%3Cpath d='M20 18h24v8H28v6h14v8H28v6h16v8H20z' fill='%23f2c14e'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f0f12;
+  --bg-2:#16161c;
+  --card:#1c1c24;
+  --line:#2c2c38;
+  --text:#eceaf0;
+  --muted:#a3a1b0;
+  --gold:#f2c14e;
+  --gold-2:#d9a631;
+  --radius:14px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,15,18,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;font-size:17px}
+.logo .mark{
+  width:34px;height:34px;flex:0 0 34px;border-radius:9px;
+  background:linear-gradient(145deg,#232330,#14141a);
+  border:1px solid #3a3a48;
+  display:grid;place-items:center;
+}
+.logo .mark svg{width:18px;height:18px}
+.logo span.brand{color:var(--gold);white-space:nowrap}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{
+  font-size:14px;color:var(--muted);padding:7px 11px;border-radius:8px;
+  transition:.18s;
+}
+.nav a:hover,.nav a:focus-visible{color:var(--text);background:#23232d}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:7px 10px;font-size:14px}
+
+/* hero */
+.hero{
+  position:relative;overflow:hidden;
+  padding:56px 0 46px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 380px at 82% -10%,rgba(242,193,78,.13),transparent 65%),
+    radial-gradient(700px 300px at 0% 110%,rgba(242,193,78,.05),transparent 60%),
+    var(--bg-2);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;color:var(--gold);
+  border:1px solid rgba(242,193,78,.4);
+  background:rgba(242,193,78,.07);
+  padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  letter-spacing:.4px;
+}
+.tag .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+h1{
+  font-size:clamp(26px,4.4vw,42px);
+  line-height:1.28;font-weight:900;letter-spacing:.5px;
+  margin-bottom:16px;
+}
+h1 .hl{color:var(--gold)}
+.hero p.lead{color:var(--muted);font-size:15.5px;max-width:34em;margin-bottom:26px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:10px;font-weight:700;font-size:15px;
+  border:1px solid transparent;cursor:pointer;transition:.18s;
+}
+.btn-primary{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#191308}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{border-color:#3a3a48;color:var(--text);background:#1d1d26}
+.btn-ghost:hover{background:#25252f}
+.btn[aria-disabled="true"]{opacity:.85;cursor:default}
+
+.hero-visual{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(160deg,#1e1e27,#14141a);
+  padding:20px;position:relative;
+}
+.hero-visual .vs-head{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-bottom:12px;letter-spacing:.5px}
+.hero-visual .vs-head b{color:var(--gold);font-weight:700}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.board .cell{
+  background:#22222c;border:1px solid #30303c;border-radius:10px;
+  padding:12px 10px;text-align:center;
+}
+.board .cell strong{display:block;font-size:20px;color:var(--gold);line-height:1.2}
+.board .cell span{font-size:11.5px;color:var(--muted)}
+.visual-note{font-size:12.5px;color:var(--muted);border-top:1px dashed #35353f;padding-top:12px;line-height:1.7}
+
+/* section shell */
+section{padding:52px 0}
+.sec-head{margin-bottom:26px}
+.sec-head h2{
+  font-size:clamp(20px,2.6vw,26px);font-weight:800;letter-spacing:.4px;
+  display:flex;align-items:center;gap:10px;margin-bottom:8px;
+}
+.sec-head h2::before{
+  content:"";width:5px;height:20px;border-radius:3px;
+  background:linear-gradient(180deg,var(--gold),var(--gold-2));
+}
+.sec-head p{color:var(--muted);font-size:14.5px;max-width:60em}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;position:relative;
+}
+.step .num{
+  font-size:13px;font-weight:800;color:#191308;
+  background:var(--gold);width:26px;height:26px;border-radius:7px;
+  display:grid;place-items:center;margin-bottom:14px;
+}
+.step h3{font-size:16px;margin-bottom:8px;font-weight:700}
+.step p{font-size:14px;color:var(--muted);line-height:1.8}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 22px 20px;transition:border-color .18s,transform .18s;
+}
+.card:hover{border-color:#4a4a5a;transform:translateY(-2px)}
+.card h3{font-size:16.5px;margin-bottom:10px;font-weight:700;display:flex;align-items:center;gap:9px}
+.card h3 .ico{
+  width:26px;height:26px;border-radius:7px;background:#26262f;border:1px solid #34343f;
+  display:grid;place-items:center;flex:0 0 26px;
+}
+.card h3 .ico svg{width:14px;height:14px}
+.card p{font-size:14px;color:var(--muted);line-height:1.85}
+.card ul{margin-top:10px;padding-left:18px;font-size:14px;color:var(--muted);line-height:1.9}
+
+/* article */
+.article-box{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 30px 26px;
+}
+.article-box h3{font-size:17px;margin:22px 0 8px;font-weight:700;color:var(--text)}
+.article-box h3:first-child{margin-top:0}
+.article-box p{font-size:14.5px;color:#c3c1cd;line-height:1.95;margin-bottom:6px}
+.article-box .k{color:var(--gold);font-weight:700}
+
+/* notice */
+.notice{
+  border:1px solid rgba(242,193,78,.35);
+  background:rgba(242,193,78,.06);
+  border-radius:var(--radius);padding:22px 24px;
+  display:flex;gap:16px;align-items:flex-start;
+}
+.notice .ni{flex:0 0 30px;width:30px;height:30px;border-radius:8px;background:rgba(242,193,78,.15);display:grid;place-items:center}
+.notice h3{font-size:15.5px;margin-bottom:8px;color:var(--gold)}
+.notice p{font-size:14px;color:#cfc2a4;line-height:1.9}
+
+/* faq */
+.faq details{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px 20px;margin-bottom:12px;
+}
+.faq details[open]{border-color:#4a4a5a}
+.faq summary{
+  cursor:pointer;font-weight:700;font-size:15px;list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:19px;font-weight:400;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{font-size:14px;color:var(--muted);line-height:1.9;margin-top:10px}
+
+/* footer */
+.site-footer{border-top:1px solid var(--line);background:#0c0c0f;padding:36px 0 30px;margin-top:10px}
+.footer-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.footer-brand{max-width:420px}
+.footer-brand .fb-top{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--gold);margin-bottom:10px;font-size:15px}
+.footer-brand p{font-size:13px;color:#7d7b89;line-height:1.9}
+.footer-links{display:flex;gap:34px;flex-wrap:wrap}
+.footer-links div{font-size:13px;color:#7d7b89;line-height:2}
+.footer-links strong{display:block;color:#b9b7c4;font-size:13px;margin-bottom:6px}
+.footer-links a:hover{color:var(--gold)}
+.copy{margin-top:26px;padding-top:18px;border-top:1px solid #1e1e26;font-size:12.5px;color:#6d6b78;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero{padding:40px 0 36px}
+  .steps{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .nav{display:none}
+  .nav.open{display:flex;position:absolute;top:66px;left:0;right:0;background:#141419;border-bottom:1px solid var(--line);padding:12px 20px;flex-direction:column;gap:2px}
+  .nav.open a{padding:10px 8px}
+  .menu-btn{display:inline-block}
+  .header-inner{position:relative;flex-wrap:nowrap}
+  .logo{font-size:15px}
+  .article-box{padding:22px 18px}
+  section{padding:38px 0}
+  .copy{flex-direction:column;gap:6px}
+}
+@media (max-width:420px){
+  .logo .mark{width:30px;height:30px;flex-basis:30px}
+  .logo{font-size:14px}
+  .btn{padding:11px 18px;font-size:14px}
+  .board .cell strong{font-size:17px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="每日黑料大赛入口 首页">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 5h16v4H8v2h9v4H8v2h12v4H4z" fill="#f2c14e"/>
+        </svg>
+      </span>
+      <span class="brand">每日黑料大赛入口</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">菜单</button>
+    <nav class="nav" id="mainNav" aria-label="主导航">
+      <a href="#entry">入口说明</a>
+      <a href="#steps">使用流程</a>
+      <a href="#zones">栏目导航</a>
+      <a href="#guide">规则须知</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag"><span class="dot"></span>固定导航页 · 入口信息集中查看</span>
+        <h1 id="heroTitle">每日黑料大赛入口</h1>
+        <p class="lead">
+          本页是「每日黑料大赛入口」的专属导航说明页，把入口地址、访问顺序、栏目划分与注意事项整理在同一屏内。
+          访问者无需在多个渠道之间来回翻找，按页面指引即可找到每日黑料大赛入口，并了解进入后如何浏览与参与。
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#entry">查看入口说明</a>
+          <a class="btn btn-ghost" href="#guide">先读规则须知</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="vs-head">
+          <span>入口信息概览</span>
+          <b>导航页</b>
+        </div>
+        <div class="board">
+          <div class="cell"><strong>1</strong><span>入口页面</span></div>
+          <div class="cell"><strong>5</strong><span>内容栏目</span></div>
+          <div class="cell"><strong>3</strong><span>访问步骤</span></div>
+        </div>
+        <p class="visual-note">
+          概览数字仅描述本导航页的栏目组织方式：一个入口说明区、五个内容栏目与三步访问流程，不代表任何赛事数据或排名。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 入口说明 -->
+  <section id="entry" aria-labelledby="entryTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="entryTitle">每日黑料大赛入口在哪里</h2>
+        <p>入口信息集中在本页，先确认来源，再按顺序访问，是使用每日黑料大赛入口最稳妥的方式。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.43" stroke="#f2c14e" stroke-width="1.8" stroke-linecap="round"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07l1.33-1.33" stroke="#f2c14e" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            固定地址，优先收藏
+          </h3>
+          <p>
+            每日黑料大赛入口以本页为固定导航位置。收藏当前页面后，下次访问无需重新搜索，直接从导航栏进入对应栏目。
+            入口地址如有调整，会在本页同步更新，请以页面展示为准。
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#f2c14e" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="#f2c14e" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            访问前先核对信息
+          </h3>
+          <p>
+            打开每日黑料大赛入口前，先确认当前页面域名与导航名称一致。若页面内容与导航说明明显不符，建议返回本页重新进入，
+            不要在其他来源页面输入个人信息。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用流程 -->
+  <section id="steps" aria-labelledby="stepsTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="stepsTitle">三步走完每日黑料大赛入口</h2>
+        <p>流程保持简短，目的是让首次访问者也能清楚知道从哪一步开始、在哪一步停下。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>从本页进入</h3>
+          <p>通过顶部导航或首屏按钮回到入口说明区，确认当前页面为每日黑料大赛入口的固定导航页，再继续下一步。</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>选择内容栏目</h3>
+          <p>入口内部按主题划分栏目，先浏览栏目说明，再挑选感兴趣的内容。每日黑料大赛入口不设强制注册环节，浏览顺序由访问者自行决定。</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>按规则浏览参与</h3>
+          <p>阅读内容时留意页面标注的更新时间与来源提示。如需参与讨论，请遵守入口内公布的社区规则，避免传播未经核实的信息。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目导航 -->
+  <section id="zones" aria-labelledby="zonesTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="zonesTitle">入口内的栏目导航</h2>
+        <p>栏目名称与用途在进入每日黑料大赛入口前即可了解，便于访问者按需查看，减少无效点击。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>今日速览</h3>
+          <p>把当日新增内容按时间排列，适合只想快速了解概况的访问者。此栏目只做条目罗列，不附加评价。</p>
+        </article>
+        <article class="card">
+          <h3>话题合集</h3>
+          <p>按话题把相关内容归并到一起，便于连续阅读同一主题。每日黑料大赛入口的合集页会标注整理时间，方便判断时效。</p>
+        </article>
+        <article class="card">
+          <h3>参赛规则</h3>
+          <p>集中说明参与方式、提交要求与审核口径。规则以页面内公布版本为准，入口调整时此栏目同步更新。</p>
+        </article>
+        <article class="card">
+          <h3>社区讨论</h3>
+          <p>供访问者就内容本身交流看法。发言需遵守基本秩序，涉及他人隐私与身份信息的内容不在讨论范围之内。</p>
+        </article>
+        <article class="card">
+          <h3>导航公告</h3>
+          <p>发布入口地址变更、栏目调整与维护通知。遇到页面无法正常打开时，优先查看此栏目是否有说明。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 规则须知 -->
+  <section id="guide" aria-labelledby="guideTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="guideTitle">使用每日黑料大赛入口前要知道的事</h2>
+        <p>以下内容属于访问须知，用于说明边界与责任，不构成对任何具体事件的判断。</p>
+      </div>
+
+      <div class="article-box">
+        <h3>关于内容来源</h3>
+        <p>
+          每日黑料大赛入口所汇集的内容来自投稿与公开渠道整理，页面会尽量标注整理时间，但不对每一条信息的真实性作绝对保证。
+          访问者在阅读时应保持独立判断，对涉及具体个人或机构的内容，以官方发布与权威媒体信息为准。
+        </p>
+
+        <h3>关于参与方式</h3>
+        <p>
+          参与每日黑料大赛入口的内容提交，需要遵守入口内公布的参赛规则。规则页面会写明可提交的话题范围、材料形式与审核流程。
+          不在规则范围内的材料，即使提交也不会进入展示环节。
+        </p>
+
+        <h3>关于隐私与边界</h3>
+        <p>
+          入口明确不接受包含他人身份证件、联系方式、住址、工作单位等可识别个人身份的信息。对于此类内容，编辑环节会直接过滤。
+          每日黑料大赛入口的定位是话题讨论与内容导航，而不是个人信息曝光渠道。
+        </p>
+
+        <h3>关于访问安全</h3>
+        <p>
+          请只从本导航页进入每日黑料大赛入口。其他渠道出现的相似名称页面，可能与本站无关。若在访问过程中遇到要求付费解锁、
+          索要账号密码或引导下载不明程序的情况，应立即停止操作并返回本页核对。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section aria-labelledby="noticeTitle">
+    <div class="wrap">
+      <div class="notice">
+        <span class="ni" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 8.5v5" stroke="#f2c14e" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.6" r="1.1" fill="#f2c14e"/><path d="M12 3.2 21 20H3z" stroke="#f2c14e" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <h3 id="noticeTitle">重要提示</h3>
+          <p>
+            每日黑料大赛入口为导航与说明性质页面，不存储原始素材，也不代替任何一方作出结论。页面信息会随栏目调整而变化，
+            具体内容以入口内实际展示为准。未成年人请在监护人知情的情况下浏览，并避免参与任何形式的争议性话题讨论。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section id="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="faqTitle">每日黑料大赛入口常见问题</h2>
+        <p>整理访问者最常提出的几类疑问，回答范围仅限本页与入口本身。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>每日黑料大赛入口地址会变吗？</summary>
+          <p>入口以本导航页为固定位置。若地址发生调整，会在导航公告栏目中说明，并在本页同步。建议收藏本页而非保存单一链接。</p>
+        </details>
+        <details>
+          <summary>进入每日黑料大赛入口需要注册吗？</summary>
+          <p>浏览内容无需注册。参与内容提交或社区讨论时，按入口内规则页的说明操作即可，规则页会写明所需步骤。</p>
+        </details>
+        <details>
+          <summary>页面打不开怎么办？</summary>
+          <p>先查看导航公告是否有维护通知，再确认网络环境与浏览器版本。若其他栏目正常而单一栏目无法打开，通常是该栏目正在整理。</p>
+        </details>
+        <details>
+          <summary>可以转载入口内的内容吗？</summary>
+          <p>转载需注明来源并保留原有时间标注，涉及具体个人的内容须先核实。每日黑料大赛入口不代为处理转载引发的争议。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="fb-top">
+          <span class="mark" aria-hidden="true" style="width:26px;height:26px;flex:0 0 26px;border-radius:7px;background:#1c1c24;border:1px solid #34343f;display:grid;place-items:center;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 5h16v4H8v2h9v4H8v2h12v4H4z" fill="#f2c14e"/></svg>
+          </span>
+          每日黑料大赛入口
+        </div>
+        <p>
+          每日黑料大赛入口的固定导航页，集中展示入口说明、栏目划分、访问流程与规则须知，帮助访问者用更短的时间找到所需内容。
+        </p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <strong>页面导航</strong>
+          <a href="#entry">入口说明</a><br>
+          <a href="#steps">使用流程</a><br>
+          <a href="#zones">栏目导航</a>
+        </div>
+        <div>
+          <strong>须知与帮助</strong>
+          <a href="#guide">规则须知</a><br>
+          <a href="#faq">常见问题</a><br>
+          <a href="#top">返回顶部</a>
+        </div>
+        <div>
+          <strong>资料说明</strong>
+          <a href="#noticeTitle">重要提示</a><br>
+          <span>内容以页面实际展示为准</span>
+        </div>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 每日黑料大赛入口 · 导航与说明页</span>
+      <span>本页信息仅用于入口指引，不构成对任何具体事件的判断。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mainNav');
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && nav.classList.contains('open')){
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>
+</body>
+</html>
