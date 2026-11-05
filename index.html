@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老司机漫画-在线漫画阅读_漫画分类推荐与更新追更_老司机漫画</title>
+<meta name="description" content="老司机漫画主题首页，整理漫画分类导航、更新追更入口、阅读方式说明与精选作品卡片，帮助读者快速找到想看的老司机漫画内容，了解站点阅读路径与使用要点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2233'/%3E%3Cpath d='M14 20h24a12 12 0 0 1 0 24H14z' fill='%23f2b544'/%3E%3Ccircle cx='40' cy='26' r='3' fill='%231b2233'/%3E%3Cpath d='M14 50h30' stroke='%23f2b544' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b2233;
+  --ink-2:#2b3448;
+  --paper:#f7f4ee;
+  --card:#ffffff;
+  --accent:#f2b544;
+  --accent-deep:#d99320;
+  --line:#e2dccf;
+  --muted:#6b7280;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,244,238,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;gap:24px;padding:14px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.5px;color:var(--ink)}
+.logo-mark{width:38px;height:38px;flex:none;border-radius:10px;background:var(--ink);display:grid;place-items:center}
+.logo-mark svg{width:24px;height:24px}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.nav a{
+  padding:7px 13px;border-radius:999px;font-size:14px;color:var(--ink-2);
+  transition:background .2s,color .2s;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--ink);color:#fff;outline:none}
+.nav .nav-cta{background:var(--accent);color:var(--ink);font-weight:700}
+.nav .nav-cta:hover{background:var(--accent-deep);color:#fff}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:1px;color:var(--accent-deep);
+  background:#fff3d6;border-radius:999px;padding:5px 14px;margin-bottom:18px;
+}
+h1{
+  font-size:clamp(30px,4.6vw,50px);
+  line-height:1.2;margin:0 0 18px;font-weight:800;letter-spacing:-.5px;
+}
+.hero p{font-size:16px;color:var(--ink-2);margin:0 0 26px;max-width:36em}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;
+  border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--ink-2)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn[aria-disabled="true"]{background:#e9e4d8;color:#8a8375;cursor:not-allowed;pointer-events:none}
+
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;border-radius:22px;box-shadow:0 18px 40px rgba(27,34,51,.16)}
+
+/* strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fffdf8}
+.strip-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:22px 0}
+.strip-item strong{display:block;font-size:20px;font-weight:800}
+.strip-item span{font-size:13px;color:var(--muted)}
+
+/* sections */
+section{padding:56px 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+.section-head h2{font-size:26px;margin:0;font-weight:800;letter-spacing:-.3px}
+.section-head p{margin:0;color:var(--muted);font-size:14px;max-width:34em}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;display:flex;flex-direction:column;gap:10px;
+  transition:box-shadow .2s,transform .2s;
+}
+.card:hover{box-shadow:0 12px 28px rgba(27,34,51,.08);transform:translateY(-2px)}
+.card-icon{width:42px;height:42px;border-radius:12px;background:#fff3d6;display:grid;place-items:center}
+.card-icon svg{width:22px;height:22px}
+.card h3{margin:0;font-size:17px;font-weight:800}
+.card p{margin:0;font-size:14px;color:var(--ink-2)}
+.card .tag{font-size:12px;font-weight:700;color:var(--accent-deep);letter-spacing:.5px}
+
+/* list with filter */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{
+  padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;
+  font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer;transition:all .2s;
+}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.series{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.series-item{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;display:flex;gap:16px;
+}
+.cover{
+  width:64px;height:88px;flex:none;border-radius:10px;overflow:hidden;
+  background:linear-gradient(160deg,#33405c,#1b2233);display:grid;place-items:center;
+}
+.cover svg{width:34px;height:34px;opacity:.85}
+.series-body h3{margin:0 0 4px;font-size:16px;font-weight:800}
+.series-body .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+.series-body p{margin:0;font-size:14px;color:var(--ink-2)}
+.empty-note{display:none;padding:24px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:var(--radius)}
+
+/* guide */
+.guide{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.guide h2{font-size:26px;margin:0 0 16px;font-weight:800}
+.guide p{font-size:15px;color:var(--ink-2);margin:0 0 14px}
+.steps{list-style:none;margin:0;padding:0;counter-reset:step}
+.steps li{
+  position:relative;padding:0 0 18px 44px;counter-increment:step;
+}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:0;
+  width:30px;height:30px;border-radius:50%;background:var(--accent);
+  color:var(--ink);font-weight:800;font-size:14px;display:grid;place-items:center;
+}
+.steps li strong{display:block;font-size:15px}
+.steps li span{font-size:14px;color:var(--ink-2)}
+
+/* faq */
+.faq{display:grid;gap:14px}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 20px;
+}
+details summary{cursor:pointer;font-weight:700;font-size:15px;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";float:right;font-weight:800;color:var(--accent-deep)}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+
+/* footer */
+.site-footer{background:var(--ink);color:#cfd6e4;padding:44px 0 28px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:30px}
+.footer-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:#fff;margin-bottom:12px}
+.footer-brand .logo-mark{background:var(--accent)}
+.site-footer p{font-size:14px;margin:0;color:#a9b2c4;max-width:30em}
+.footer-col h4{font-size:14px;color:#fff;margin:0 0 10px;font-weight:700}
+.footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.footer-col a{font-size:14px;color:#a9b2c4}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:13px;color:#8b95a8}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-art{order:-1;max-width:340px}
+  .cards{grid-template-columns:1fr 1fr}
+  .series{grid-template-columns:1fr}
+  .guide-grid{grid-template-columns:1fr;gap:24px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .strip-inner{grid-template-columns:1fr 1fr;gap:16px}
+}
+@media (max-width:600px){
+  .header-inner{gap:12px}
+  .nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .nav a{white-space:nowrap}
+  .cards{grid-template-columns:1fr}
+  .hero{padding:34px 0 26px}
+  section{padding:40px 0}
+  .footer-grid{grid-template-columns:1fr}
+  h1{font-size:30px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="老司机漫画首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 6h9a6 6 0 0 1 0 12H5z" fill="#f2b544"/><circle cx="14" cy="10" r="1.4" fill="#1b2233"/><path d="M5 21h11" stroke="#f2b544" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      老司机漫画
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#top">首页</a>
+      <a href="#categories">分类导航</a>
+      <a href="#works">精选作品</a>
+      <a href="#guide">阅读指南</a>
+      <a href="#faq">常见问题</a>
+      <a class="nav-cta" href="#works">开始阅读</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">漫画阅读 · 分类导航 · 更新追更</span>
+        <h1>老司机漫画</h1>
+        <p>老司机漫画是一个面向漫画读者的主题首页，把分类入口、作品卡片与阅读方式集中在同一页面。你可以先按题材筛选，再进入感兴趣的作品了解简介与更新情况，也可以从阅读指南中确认设备、加载和追更的常见做法。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#works">浏览精选作品</a>
+          <a class="btn btn-ghost" href="#guide">查看阅读指南</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 320" role="img" aria-label="漫画阅读主题插画">
+          <rect width="420" height="320" rx="22" fill="#1b2233"/>
+          <rect x="34" y="36" width="150" height="196" rx="12" fill="#f7f4ee"/>
+          <rect x="50" y="54" width="118" height="70" rx="8" fill="#f2b544"/>
+          <circle cx="88" cy="82" r="12" fill="#1b2233"/>
+          <circle cx="128" cy="82" r="12" fill="#1b2233"/>
+          <path d="M84 108q26 16 52 0" stroke="#1b2233" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <rect x="50" y="140" width="118" height="9" rx="4.5" fill="#d8d2c4"/>
+          <rect x="50" y="160" width="92" height="9" rx="4.5" fill="#d8d2c4"/>
+          <rect x="50" y="180" width="104" height="9" rx="4.5" fill="#d8d2c4"/>
+          <rect x="204" y="64" width="182" height="132" rx="12" fill="#2b3448"/>
+          <rect x="222" y="84" width="76" height="8" rx="4" fill="#f2b544"/>
+          <rect x="222" y="104" width="140" height="8" rx="4" fill="#4a5670"/>
+          <rect x="222" y="124" width="112" height="8" rx="4" fill="#4a5670"/>
+          <rect x="222" y="152" width="64" height="26" rx="13" fill="#f2b544"/>
+          <rect x="204" y="212" width="182" height="18" rx="9" fill="#3a4560"/>
+          <rect x="34" y="252" width="352" height="12" rx="6" fill="#3a4560"/>
+          <circle cx="360" cy="44" r="14" fill="#f2b544"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <div class="strip-item"><strong>分类导航</strong><span>按题材与热度进入</span></div>
+      <div class="strip-item"><strong>更新追更</strong><span>关注作品连载状态</span></div>
+      <div class="strip-item"><strong>多端阅读</strong><span>手机与桌面自适应</span></div>
+      <div class="strip-item"><strong>使用说明</strong><span>加载与账号常见问题</span></div>
+    </div>
+  </div>
+
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>老司机漫画分类导航</h2>
+        <p>把入口按阅读目的分组，先确定想看的方向，再进入具体作品，减少在页面之间反复跳转。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="8" height="16" rx="2" stroke="#d99320" stroke-width="2"/><rect x="13" y="4" width="8" height="16" rx="2" stroke="#d99320" stroke-width="2"/></svg>
+          </span>
+          <span class="tag">按题材</span>
+          <h3>题材分类</h3>
+          <p>剧情、日常、奇幻、校园等方向的分类入口，适合已有明确偏好的读者快速定位，也是老司机漫画阅读路径的第一站。</p>
+        </article>
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 17l5-6 4 4 7-9" stroke="#d99320" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 21h16" stroke="#d99320" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="tag">按热度</span>
+          <h3>更新与热度</h3>
+          <p>依据作品连载进度与读者关注度整理，帮助判断从哪一部开始看，避免点进长期停更的条目。</p>
+        </article>
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.6 5.6L21 9.4l-4.5 4.3 1.1 6.3L12 17l-5.6 3 1.1-6.3L3 9.4l6.4-.8z" stroke="#d99320" stroke-width="2" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="tag">按偏好</span>
+          <h3>编辑推荐</h3>
+          <p>按阅读节奏与篇幅差异组织的推荐清单，适合想尝试新方向、又不确定从哪部入手的读者参考。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>精选作品与阅读入口</h2>
+        <p>点击下方标签可筛选作品卡片，结果即时显示在列表中。这里的作品条目用于展示老司机漫画的内容组织方式。</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="作品筛选">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-filter="剧情" aria-pressed="false">剧情</button>
+        <button class="chip" type="button" data-filter="日常" aria-pressed="false">日常</button>
+        <button class="chip" type="button" data-filter="奇幻" aria-pressed="false">奇幻</button>
+      </div>
+      <div class="series" id="seriesList">
+        <article class="series-item" data-cat="剧情">
+          <div class="cover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h8a4 4 0 0 1 0 8H6z" stroke="#f2b544" stroke-width="2"/><path d="M6 20h10" stroke="#f2b544" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="series-body">
+            <h3>长篇连载 · 剧情向</h3>
+            <div class="meta">连载中 · 适合连续阅读</div>
+            <p>以主线推进为主，章节之间衔接紧密，适合一次读多话的读者。</p>
+          </div>
+        </article>
+        <article class="series-item" data-cat="日常">
+          <div class="cover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#f2b544" stroke-width="2"/><path d="M9 11h.01M15 11h.01M9.5 15q2.5 1.8 5 0" stroke="#f2b544" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="series-body">
+            <h3>单元短篇 · 日常向</h3>
+            <div class="meta">更新中 · 单话可读</div>
+            <p>每话相对独立，适合碎片时间阅读，从任意一话进入也不影响理解。</p>
+          </div>
+        </article>
+        <article class="series-item" data-cat="奇幻">
+          <div class="cover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2 6h6l-5 4 2 7-5-4-5 4 2-7-5-4h6z" stroke="#f2b544" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div class="series-body">
+            <h3>世界观向 · 奇幻</h3>
+            <div class="meta">连载中 · 设定信息较多</div>
+            <p>开篇有较多设定铺垫，建议从第一话顺序阅读，避免错过背景信息。</p>
+          </div>
+        </article>
+        <article class="series-item" data-cat="剧情">
+          <div class="cover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="#f2b544" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="series-body">
+            <h3>双线叙事 · 剧情向</h3>
+            <div class="meta">连载中 · 建议按章节顺序</div>
+            <p>两条时间线交替展开，跳读容易混淆人物关系，按顺序阅读体验更完整。</p>
+          </div>
+        </article>
+      </div>
+      <p class="empty-note" id="emptyNote">当前筛选下暂无作品条目，可切换其他标签查看。</p>
+    </div>
+  </section>
+
+  <section class="guide" id="guide">
+    <div class="wrap guide-grid">
+      <div>
+        <h2>在老司机漫画阅读的四个步骤</h2>
+        <p>阅读体验取决于入口是否清晰、页面是否稳定加载。以下流程按实际访问顺序整理，适用于手机与电脑浏览器。</p>
+        <p>如果你第一次访问，建议先看分类导航确定方向，再回到作品列表筛选，最后进入具体章节阅读，这样比直接在搜索框里盲试更省时间。</p>
+      </div>
+      <ol class="steps">
+        <li><strong>确定阅读方向</strong><span>从题材、热度或推荐三个入口中选一个，缩小范围。</span></li>
+        <li><strong>筛选作品条目</strong><span>用标签筛选，快速排除不符合偏好的作品。</span></li>
+        <li><strong>查看连载状态</strong><span>确认是连载中还是已完结，再决定是否追更。</span></li>
+        <li><strong>进入章节阅读</strong><span>按章节顺序阅读，遇到加载慢可稍等或刷新页面。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>围绕老司机漫画的访问与使用，整理读者最常提出的几个问题。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>老司机漫画需要注册账号吗？</summary>
+          <p>浏览分类与作品介绍通常无需账号，收藏、追更等个性化功能是否需要登录，以站点实际提示为准。</p>
+        </details>
+        <details>
+          <summary>页面加载慢或图片显示不出来怎么办？</summary>
+          <p>可先检查网络连接，再刷新页面；若只有个别图片异常，多为资源加载延迟，稍后重试即可。</p>
+        </details>
+        <details>
+          <summary>作品停更了还能继续看吗？</summary>
+          <p>已发布的章节一般仍可阅读，但后续更新以作品状态为准。追更前建议先确认最新更新时间。</p>
+        </details>
+        <details>
+          <summary>手机上阅读排版会乱吗？</summary>
+          <p>页面采用自适应布局，手机端会调整导航、字号与卡片排列，正文行长与间距按小屏阅读习惯设置。</p>
+        </details>
+      </div>
+      <div style="margin-top:26px">
+        <a class="btn btn-primary" href="#works">回到作品列表</a>
+        <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 6h9a6 6 0 0 1 0 12H5z" fill="#1b2233"/><circle cx="14" cy="10" r="1.4" fill="#f2b544"/><path d="M5 21h11" stroke="#1b2233" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          老司机漫画
+        </div>
+        <p>老司机漫画主题首页，聚合分类导航、精选作品与阅读指南，帮助读者用更短路径找到想看的漫画内容。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速入口</h4>
+        <ul>
+          <li><a href="#categories">分类导航</a></li>
+          <li><a href="#works">精选作品</a></li>
+          <li><a href="#guide">阅读指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>阅读提示</h4>
+        <ul>
+          <li><a href="#guide">按顺序阅读章节</a></li>
+          <li><a href="#faq">加载异常处理</a></li>
+          <li><a href="#works">筛选作品条目</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 老司机漫画 · 本页为主题首页，作品与功能信息以实际站点状态为准。</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var items = document.querySelectorAll('#seriesList .series-item');
+  var empty = document.getElementById('emptyNote');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      var shown = 0;
+      items.forEach(function(it){
+        var match = (f === 'all' || it.getAttribute('data-cat') === f);
+        it.style.display = match ? '' : 'none';
+        if(match) shown++;
+      });
+      empty.style.display = shown ? 'none' : 'block';
+    });
+  });
+})();
+</script>
+</body>
+              </html>
