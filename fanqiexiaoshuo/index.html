@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>番茄小说网-在线阅读免费小说_网络小说书库与排行榜</title>
+<meta name="description" content="番茄小说网是免费在线阅读平台，汇集都市、玄幻、悬疑、言情等网络小说，提供分类书库、排行榜、热门推荐与书架收藏，帮助读者快速找到想看的作品并持续追更。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e2452f'/%3E%3Cpath d='M32 14c7 0 12 5 12 12 0 8-6 12-12 22-6-10-12-14-12-22 0-7 5-12 12-12z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --red:#e2452f;
+    --red-dark:#b8341f;
+    --ink:#1f2328;
+    --ink-2:#4a5058;
+    --ink-3:#7b828c;
+    --line:#e8e4de;
+    --paper:#fdfbf7;
+    --card:#ffffff;
+    --warm:#fff4ee;
+    --gold:#c98a2b;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+  p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+  /* 头部 */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,251,247,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    display:flex;align-items:center;gap:18px;
+    min-height:64px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:9px;
+    font-size:19px;font-weight:800;letter-spacing:.5px;
+    color:var(--red-dark);white-space:nowrap;
+  }
+  .logo .mark{width:30px;height:30px;flex:none;}
+  nav.main{margin-left:auto;display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+  nav.main a{
+    padding:7px 12px;border-radius:999px;
+    font-size:14.5px;color:var(--ink-2);font-weight:500;
+    transition:.18s;
+  }
+  nav.main a:hover,nav.main a:focus-visible{background:var(--warm);color:var(--red-dark);}
+  nav.main a.cta{
+    background:var(--red);color:#fff;font-weight:600;
+    padding:7px 16px;
+  }
+  nav.main a.cta:hover,nav.main a.cta:focus-visible{background:var(--red-dark);color:#fff;}
+
+  /* 首屏 */
+  .hero{
+    padding:52px 0 46px;
+    background:
+      radial-gradient(760px 320px at 88% -10%,#ffe6da 0%,rgba(255,230,218,0) 70%),
+      var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+  .kicker{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:13px;font-weight:600;letter-spacing:1px;
+    color:var(--red-dark);background:var(--warm);
+    border:1px solid #f6d9cd;border-radius:999px;
+    padding:4px 12px;margin-bottom:16px;
+  }
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--red);}
+  h1{
+    font-size:clamp(30px,4.4vw,46px);
+    letter-spacing:1px;
+    color:var(--ink);
+    margin-bottom:16px;
+  }
+  h1 .accent{color:var(--red);}
+  .hero p.lead{
+    font-size:16.5px;color:var(--ink-2);max-width:34em;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 24px;border-radius:999px;font-size:15px;font-weight:600;
+    border:1px solid transparent;transition:.18s;cursor:pointer;
+  }
+  .btn-primary{background:var(--red);color:#fff;box-shadow:0 6px 18px rgba(226,69,47,.22);}
+  .btn-primary:hover,.btn-primary:focus-visible{background:var(--red-dark);}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-2);}
+  .btn-ghost:hover,.btn-ghost:focus-visible{border-color:#f0c8ba;color:var(--red-dark);}
+  .btn[aria-disabled="true"]{opacity:.85;cursor:default;}
+
+  .hero-art{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 18px 40px -28px rgba(60,40,30,.45);
+  }
+  .hero-art .art-title{
+    font-size:13px;font-weight:700;letter-spacing:1.5px;
+    color:var(--ink-3);margin-bottom:14px;text-transform:uppercase;
+  }
+  .shelf{display:flex;flex-direction:column;gap:11px;}
+  .shelf li{
+    display:flex;align-items:center;gap:12px;
+    padding:9px 11px;border-radius:11px;background:#fbf8f4;
+    border:1px solid #f1ece4;
+  }
+  .shelf .cover{
+    width:34px;height:44px;border-radius:5px;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:700;color:#fff;letter-spacing:0;
+  }
+  .shelf .meta{min-width:0;}
+  .shelf .meta b{display:block;font-size:14px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .shelf .meta span{font-size:12.5px;color:var(--ink-3);}
+  .shelf .tag{
+    margin-left:auto;flex:none;font-size:11.5px;font-weight:600;
+    color:var(--red-dark);background:#ffede6;border-radius:999px;padding:2px 9px;
+  }
+
+  /* 通用区块 */
+  section.block{padding:52px 0;}
+  section.block + section.block{border-top:1px solid var(--line);}
+  .sec-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;margin-bottom:26px;
+  }
+  .sec-head h2{font-size:clamp(21px,2.4vw,26px);letter-spacing:.5px;}
+  .sec-head h2 small{
+    display:block;font-size:13px;font-weight:500;color:var(--ink-3);
+    letter-spacing:1.5px;margin-top:6px;text-transform:uppercase;
+  }
+  .sec-head .more{font-size:14px;color:var(--red-dark);font-weight:600;}
+  .sec-head .more:hover{text-decoration:underline;}
+
+  /* 分类 */
+  .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .cat{
+    display:block;padding:18px 18px 16px;border-radius:var(--radius);
+    background:var(--card);border:1px solid var(--line);
+    transition:.18s;
+  }
+  .cat:hover,.cat:focus-visible{border-color:#f0c3b4;transform:translateY(-2px);box-shadow:0 12px 24px -20px rgba(60,40,30,.6);}
+  .cat b{display:block;font-size:16px;margin-bottom:5px;}
+  .cat span{font-size:13px;color:var(--ink-3);line-height:1.6;display:block;}
+  .cat .ic{width:26px;height:26px;margin-bottom:12px;color:var(--red);}
+
+  /* 排行榜 */
+  .rank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .rank-card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px;
+  }
+  .rank-card h3{
+    font-size:15px;letter-spacing:.5px;color:var(--red-dark);
+    padding-bottom:12px;margin-bottom:12px;border-bottom:1px dashed var(--line);
+    display:flex;align-items:center;gap:8px;
+  }
+  .rank-card h3 .ic{width:18px;height:18px;color:var(--red);}
+  .rank-card ol{list-style:none;padding:0;margin:0;counter-reset:r;}
+  .rank-card li{
+    display:flex;align-items:baseline;gap:10px;
+    padding:7px 0;font-size:14.5px;
+  }
+  .rank-card li::before{
+    counter-increment:r;content:counter(r);
+    flex:none;width:19px;font-size:12.5px;font-weight:700;
+    color:var(--ink-3);font-variant-numeric:tabular-nums;
+  }
+  .rank-card li:nth-child(-n+3)::before{color:var(--red);}
+  .rank-card li a{color:var(--ink);border-bottom:1px solid transparent;}
+  .rank-card li a:hover{border-bottom-color:#f0c3b4;color:var(--red-dark);}
+  .rank-card li .em{margin-left:auto;font-size:12px;color:var(--ink-3);flex:none;}
+
+  /* 书库筛选 */
+  .filter-bar{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:14px 16px;margin-bottom:22px;
+  }
+  .filter-bar label{font-size:14px;font-weight:600;color:var(--ink-2);margin-right:2px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:13.5px;padding:6px 14px;border-radius:999px;
+    border:1px solid var(--line);background:#fff;color:var(--ink-2);
+    cursor:pointer;transition:.15s;font-family:inherit;
+  }
+  .chip:hover{border-color:#f0c3b4;color:var(--red-dark);}
+  .chip[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff;font-weight:600;}
+  .search-box{margin-left:auto;display:flex;gap:8px;align-items:center;}
+  .search-box input{
+    font-family:inherit;font-size:14px;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);background:#fbf8f4;color:var(--ink);
+    width:190px;outline:none;
+  }
+  .search-box input:focus{border-color:var(--red);background:#fff;}
+  .books{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .book{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;transition:.18s;
+  }
+  .book:hover{border-color:#f0c3b4;transform:translateY(-2px);box-shadow:0 14px 26px -22px rgba(60,40,30,.6);}
+  .book .cover{
+    height:104px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:15px;font-weight:800;letter-spacing:2px;
+  }
+  .book .body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .book .body b{font-size:15px;font-weight:700;}
+  .book .body p{font-size:13px;color:var(--ink-3);line-height:1.65;}
+  .book .foot{
+    margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+    font-size:12.5px;color:var(--ink-3);padding-top:8px;
+  }
+  .book .foot .st{color:var(--gold);font-weight:600;}
+  .empty-note{
+    display:none;font-size:14px;color:var(--ink-3);
+    padding:18px 0 4px;
+  }
+
+  /* 为什么 */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .why{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px;
+  }
+  .why .ic{width:30px;height:30px;color:var(--red);margin-bottom:14px;}
+  .why h3{font-size:16px;margin-bottom:8px;}
+  .why p{font-size:14px;color:var(--ink-2);line-height:1.8;}
+
+  /* 阅读指南 */
+  .guide{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start;}
+  .guide .prose p{font-size:15px;color:var(--ink-2);margin-bottom:14px;line-height:1.9;}
+  .guide .prose p b{color:var(--ink);}
+  .steps{counter-reset:s;display:flex;flex-direction:column;gap:12px;}
+  .steps li{
+    position:relative;padding:15px 18px 15px 56px;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    font-size:14px;color:var(--ink-2);line-height:1.75;
+  }
+  .steps li::before{
+    counter-increment:s;content:counter(s);
+    position:absolute;left:16px;top:15px;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--warm);color:var(--red-dark);
+    font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .steps li b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:2px;}
+
+  /* 下载条 */
+  .download{
+    margin:0 0 0;
+    background:linear-gradient(120deg,#fff1ea,#fff9f5);
+    border:1px solid #f6d9cd;border-radius:20px;
+    padding:30px 30px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;
+  }
+  .download .txt{flex:1 1 320px;min-width:0;}
+  .download h2{font-size:21px;margin-bottom:8px;}
+  .download p{font-size:14px;color:var(--ink-2);line-height:1.8;}
+  .download .btn{flex:none;}
+
+  /* 页尾 */
+  footer.site{
+    border-top:1px solid var(--line);
+    background:#fbf7f1;
+    padding:38px 0 30px;
+    margin-top:0;
+  }
+  .foot-grid{display:flex;gap:36px;flex-wrap:wrap;justify-content:space-between;}
+  .foot-brand{max-width:300px;}
+  .foot-brand .logo{font-size:17px;margin-bottom:12px;}
+  .foot-brand p{font-size:13px;color:var(--ink-3);line-height:1.85;}
+  .foot-links{display:flex;gap:38px;flex-wrap:wrap;}
+  .foot-links h4{font-size:13.5px;color:var(--ink-2);margin-bottom:10px;letter-spacing:.5px;}
+  .foot-links li{font-size:13px;color:var(--ink-3);padding:3px 0;}
+  .foot-links a:hover{color:var(--red-dark);text-decoration:underline;}
+  .foot-bottom{
+    margin-top:28px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--ink-3);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;}
+    .hero-art{order:2;}
+    .cats{grid-template-columns:repeat(2,1fr);}
+    .books{grid-template-columns:repeat(2,1fr);}
+    .rank-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .guide{grid-template-columns:1fr;gap:24px;}
+  }
+  @media (max-width:620px){
+    body{font-size:15.5px;}
+    .head-inner{flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:10px;}
+    nav.main{margin-left:0;width:100%;justify-content:flex-start;gap:2px;}
+    nav.main a{padding:6px 10px;font-size:14px;}
+    nav.main a.cta{margin-left:2px;}
+    .hero{padding:34px 0 36px;}
+    .hero-actions .btn{flex:1 1 100%;}
+    .cats{grid-template-columns:1fr 1fr;gap:10px;}
+    .cat{padding:15px;}
+    .books{grid-template-columns:1fr 1fr;gap:12px;}
+    .book .cover{height:86px;font-size:13px;}
+    .book .body{padding:12px;}
+    .search-box{margin-left:0;width:100%;}
+    .search-box input{width:100%;}
+    section.block{padding:38px 0;}
+    .download{padding:22px;}
+    .download .btn{width:100%;}
+    .foot-grid{gap:24px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top" aria-label="番茄小说网首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="15" fill="#e2452f"/>
+        <path d="M32 13c7.6 0 13 5.4 13 12.8 0 8.6-6.6 13-13 23.4-6.4-10.4-13-14.8-13-23.4C19 18.4 24.4 13 32 13z" fill="#fff"/>
+        <path d="M32 21.5c3.6 0 6.2 2.6 6.2 6.2 0 4.2-3.2 6.4-6.2 11.3-3-4.9-6.2-7.1-6.2-11.3 0-3.6 2.6-6.2 6.2-6.2z" fill="#e2452f"/>
+      </svg>
+      番茄小说网
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#cats">分类书库</a>
+      <a href="#rank">排行榜</a>
+      <a href="#shelf">精选书单</a>
+      <a href="#guide">阅读指南</a>
+      <a class="cta" href="#shelf">开始阅读</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker"><span class="dot"></span>免费在线阅读 · 网络小说书库</span>
+        <h1>番茄小说网</h1>
+        <p class="lead">番茄小说网是一个面向网络小说读者的在线阅读平台，汇集都市、玄幻、悬疑、言情、历史与科幻等类型作品。在这里，你可以按分类浏览书库、查看排行榜与热门推荐，把感兴趣的作品加入书架，持续追更。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#shelf">浏览精选书单</a>
+          <a class="btn btn-ghost" href="#cats">按分类找书</a>
+        </div>
+      </div>
+      <aside class="hero-art" aria-label="书架速览">
+        <div class="art-title">书架速览</div>
+        <ul class="shelf">
+          <li>
+            <span class="cover" style="background:#c0492f">都市</span>
+            <span class="meta"><b>都市职场线</b><span>现实题材 · 连载中</span></span>
+            <span class="tag">热门</span>
+          </li>
+          <li>
+            <span class="cover" style="background:#4a6b8a">玄幻</span>
+            <span class="meta"><b>东方玄幻世界</b><span>成长冒险 · 连载中</span></span>
+            <span class="tag">上升</span>
+          </li>
+          <li>
+            <span class="cover" style="background:#5c5470">悬疑</span>
+            <span class="meta"><b>悬疑推理短篇</b><span>案件推理 · 已完结</span></span>
+            <span class="tag">完结</span>
+          </li>
+          <li>
+            <span class="cover" style="background:#8a5a3c">言情</span>
+            <span class="meta"><b>现代言情故事</b><span>情感生活 · 连载中</span></span>
+            <span class="tag">新书</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section class="block" id="cats">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>分类书库<small>Categories</small></h2>
+        <a class="more" href="#shelf">查看全部作品 →</a>
+      </div>
+      <div class="cats">
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20V6a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 12h6M9 16h4"/></svg>
+          <b>都市</b>
+          <span>职场、生活与成长，贴近现实的日常故事。</span>
+        </a>
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8z"/></svg>
+          <b>玄幻</b>
+          <span>架空世界、修行体系与冒险成长主线。</span>
+        </a>
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+          <b>悬疑</b>
+          <span>案件推理与线索追踪，重视情节节奏。</span>
+        </a>
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.5-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.5 12 20 12 20z"/></svg>
+          <b>言情</b>
+          <span>情感关系与人物心境，适合连续阅读。</span>
+        </a>
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5l8 3 8-3v14l-8 3z"/><path d="M12 8v11"/></svg>
+          <b>历史</b>
+          <span>时代背景下的家国故事与人物抉择。</span>
+        </a>
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+          <b>科幻</b>
+          <span>未来设定与科技想象，探索未知边界。</span>
+        </a>
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 18l5-6 4 3 4-6 5 9"/><path d="M3 21h18"/></svg>
+          <b>竞技</b>
+          <span>赛场对抗与团队协作，节奏明快。</span>
+        </a>
+        <a class="cat" href="#shelf">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg>
+          <b>短篇</b>
+          <span>篇幅紧凑，适合碎片时间一次读完。</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 排行榜 -->
+  <section class="block" id="rank">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>阅读排行榜<small>Ranking</small></h2>
+        <a class="more" href="#shelf">更多榜单 →</a>
+      </div>
+      <div class="rank-grid">
+        <div class="rank-card">
+          <h3>
+            <svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.8.8-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.8z"/></svg>
+            人气飙升
+          </h3>
+          <ol>
+            <li><a href="#shelf">都市职场线</a><span class="em">↑ 3</span></li>
+            <li><a href="#shelf">东方玄幻世界</a><span class="em">↑ 2</span></li>
+            <li><a href="#shelf">现代言情故事</a><span class="em">↑ 1</span></li>
+            <li><a href="#shelf">悬疑推理短篇</a><span class="em">—</span></li>
+            <li><a href="#shelf">星际探索纪事</a><span class="em">—</span></li>
+          </ol>
+        </div>
+        <div class="rank-card">
+          <h3>
+            <svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.4 5.2 5.6.7-4.2 3.9 1.1 5.6L12 15.6 7.1 18.4l1.1-5.6L4 8.9l5.6-.7z"/></svg>
+            完结精选
+          </h3>
+          <ol>
+            <li><a href="#shelf">悬疑推理短篇</a><span class="em">完结</span></li>
+            <li><a href="#shelf">小城旧事录</a><span class="em">完结</span></li>
+            <li><a href="#shelf">赛场上的我们</a><span class="em">完结</span></li>
+            <li><a href="#shelf">长夜归途</a><span class="em">完结</span></li>
+            <li><a href="#shelf">浮生书简</a><span class="em">完结</span></li>
+          </ol>
+        </div>
+        <div class="rank-card">
+          <h3>
+            <svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 20V4h11l5 5v11z"/></svg>
+            新书试读
+          </h3>
+          <ol>
+            <li><a href="#shelf">现代言情故事</a><span class="em">新</span></li>
+            <li><a href="#shelf">星际探索纪事</a><span class="em">新</span></li>
+            <li><a href="#shelf">雾港来信</a><span class="em">新</span></li>
+            <li><a href="#shelf">少年与风</a><span class="em">新</span></li>
+            <li><a href="#shelf">旧书店的午后</a><span class="em">新</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选书单 + 筛选 -->
+  <section class="block" id="shelf">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>精选书单<small>Library</small></h2>
+        <span class="more" style="cursor:default">共 8 部作品</span>
+      </div>
+
+      <div class="filter-bar">
+        <label for="q">找书</label>
+        <div class="chips" role="group" aria-label="按类型筛选">
+          <button type="button" class="chip" data-cat="all" aria-pressed="true">全部</button>
+          <button type="button" class="chip" data-cat="都市" aria-pressed="false">都市</button>
+          <button type="button" class="chip" data-cat="玄幻" aria-pressed="false">玄幻</button>
+          <button type="button" class="chip" data-cat="悬疑" aria-pressed="false">悬疑</button>
+          <button type="button" class="chip" data-cat="言情" aria-pressed="false">言情</button>
+          <button type="button" class="chip" data-cat="科幻" aria-pressed="false">科幻</button>
+        </div>
+        <div class="search-box">
+          <label for="q" class="sr-only">按书名搜索</label>
+          <input id="q" type="search" placeholder="输入书名关键词，如：悬疑" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="books" id="bookList">
+        <article class="book" data-cat="都市" data-name="都市职场线">
+          <div class="cover" style="background:#c0492f">都市</div>
+          <div class="body">
+            <b>都市职场线</b>
+            <p>以城市职场为背景，讲述普通人在工作中寻找方向的故事。</p>
+            <div class="foot"><span>连载中</span><span class="st">人气 9.8</span></div>
+          </div>
+        </article>
+        <article class="book" data-cat="玄幻" data-name="东方玄幻世界">
+          <div class="cover" style="background:#4a6b8a">玄幻</div>
+          <div class="body">
+            <b>东方玄幻世界</b>
+            <p>架空大陆上的修行与冒险，主角在历练中逐步成长。</p>
+            <div class="foot"><span>连载中</span><span class="st">人气 9.6</span></div>
+          </div>
+        </article>
+        <article class="book" data-cat="悬疑" data-name="悬疑推理短篇">
+          <div class="cover" style="background:#5c5470">悬疑</div>
+          <div class="body">
+            <b>悬疑推理短篇</b>
+            <p>以案件为单元推进，线索层层收束，适合一次读完。</p>
+            <div class="foot"><span>已完结</span><span class="st">人气 9.5</span></div>
+          </div>
+        </article>
+        <article class="book" data-cat="言情" data-name="现代言情故事">
+          <div class="cover" style="background:#8a5a3c">言情</div>
+          <div class="body">
+            <b>现代言情故事</b>
+            <p>围绕都市青年的情感与选择展开，注重人物内心刻画。</p>
+            <div class="foot"><span>连载中</span><span class="st">人气 9.3</span></div>
+          </div>
+        </article>
+        <article class="book" data-cat="科幻" data-name="星际探索纪事">
+          <div class="cover" style="background:#3c6b6b">科幻</div>
+          <div class="body">
+            <b>星际探索纪事</b>
+            <p>以远航探索为主线，描写团队协作与未知世界的想象。</p>
+            <div class="foot"><span>连载中</span><span class="st">人气 9.2</span></div>
+          </div>
+        </article>
+        <article class="book" data-cat="悬疑" data-name="雾港来信">
+          <div class="cover" style="background:#6b4a5c">悬疑</div>
+          <div class="body">
+            <b>雾港来信</b>
+            <p>一封旧信牵出多年往事，故事在港口小城缓慢展开。</p>
+            <div class="foot"><span>连载中</span><span class="st">人气 9.0</span></div>
+          </div>
+        </article>
+        <article class="book" data-cat="都市" data-name="旧书店的午后">
+          <div class="cover" style="background:#8a6a3c">都市</div>
+          <div class="body">
+            <b>旧书店的午后</b>
+            <p>以旧书店为线索，串联起几位普通读者的日常生活。</p>
+            <div class="foot"><span>已完结</span><span class="st">人气 8.9</span></div>
+          </div>
+        </article>
+        <article class="book" data-cat="玄幻" data-name="少年与风">
+          <div class="cover" style="background:#4a7a5c">玄幻</div>
+          <div class="body">
+            <b>少年与风</b>
+            <p>少年离开小镇踏上旅途，在旅途中理解力量与责任。</p>
+            <div class="foot"><span>连载中</span><span class="st">人气 8.8</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-note" id="emptyNote">没有匹配的作品，试试其他类型或换个关键词。</p>
+    </div>
+  </section>
+
+  <!-- 为什么 -->
+  <section class="block" id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>为什么选择番茄小说网<small>Why Us</small></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
+          <h3>分类清晰，找书直接</h3>
+          <p>书库按都市、玄幻、悬疑、言情等类型划分，每个分类下标注作品状态与题材方向。读者不必翻多层页面，就能判断一部书是否符合自己的阅读偏好，减少挑选成本。</p>
+        </div>
+        <div class="why">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 18V8l8-4 8 4v10l-8 4z"/><path d="M12 4v18"/></svg>
+          <h3>榜单与书单并行</h3>
+          <p>人气飙升、完结精选与新书试读三类榜单分别对应不同需求：想看热门、想一次读完、想尝鲜新作。榜单与精选书单互相补充，为读者提供多条进入书库的路径。</p>
+        </div>
+        <div class="why">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          <h3>书架收藏，持续追更</h3>
+          <p>阅读过程中可把作品加入书架，集中查看连载进度与更新状态。对于同时追多部作品的读者，书架能减少重复查找，把注意力放在内容本身。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 阅读指南 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>阅读指南<small>Guide</small></h2>
+      </div>
+      <div class="guide">
+        <div class="prose">
+          <p><b>从分类进入，还是从榜单进入？</b>如果你已有明确的题材偏好，先在分类书库中选定类型，再结合作品简介判断是否适合自己；如果你只是想找一部能读下去的作品，可以先看人气飙升与完结精选，再从榜单跳到具体书目。</p>
+          <p><b>连载与完结的取舍。</b>连载作品更新持续，适合愿意长期追更的读者；完结作品可以一次读完，节奏更完整。番茄小说网在书单与榜单中标注作品状态，方便你按自己的阅读习惯选择。</p>
+          <p><b>把书加入书架。</b>遇到感兴趣的作品，先加入书架再决定是否深入阅读。书架是个人阅读入口，也是后续追更的起点。对于同时关注多个类型的读者，书架能让阅读进度保持清晰。</p>
+        </div>
+        <ol class="steps">
+          <li><b>确定阅读方向</b>在分类书库中选择都市、玄幻、悬疑、言情、历史或科幻等类型。</li>
+          <li><b>参考榜单</b>查看人气飙升、完结精选与新书试读，了解当前受关注的作品。</li>
+          <li><b>打开作品详情</b>阅读简介与状态标注，判断题材与篇幅是否符合预期。</li>
+          <li><b>加入书架</b>收藏感兴趣的作品，集中管理连载进度与更新提醒。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载 -->
+  <div class="wrap" style="padding-bottom:52px">
+    <div class="download">
+      <div class="txt">
+        <h2>下载番茄小说网客户端</h2>
+        <p>客户端支持书架同步与更新提醒，适合长期追更的读者。当前下载入口尚在准备中，你可以先在网页端浏览书库、查看榜单与加入书架。</p>
+      </div>
+      <a class="btn btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false" style="width:24px;height:24px">
+            <rect width="64" height="64" rx="15" fill="#e2452f"/>
+            <path d="M32 13c7.6 0 13 5.4 13 12.8 0 8.6-6.6 13-13 23.4-6.4-10.4-13-14.8-13-23.4C19 18.4 24.4 13 32 13z" fill="#fff"/>
+          </svg>
+          番茄小说网
+        </a>
+        <p>番茄小说网专注网络小说在线阅读，提供分类书库、排行榜与精选书单，帮助读者按题材与状态找到合适的作品。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>浏览</h4>
+          <ul>
+            <li><a href="#cats">分类书库</a></li>
+            <li><a href="#rank">阅读排行榜</a></li>
+            <li><a href="#shelf">精选书单</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>帮助</h4>
+          <ul>
+            <li><a href="#guide">阅读指南</a></li>
+            <li><a href="#why">平台说明</a></li>
+            <li><a href="#top">返回顶部</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>关于</h4>
+          <ul>
+            <li><a href="#why">关于番茄小说网</a></li>
+            <li><a href="#guide">书架使用</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>番茄小说网 · 在线阅读网络小说</span>
+      <span>内容以书库实际收录为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var books = Array.prototype.slice.call(document.querySelectorAll('#bookList .book'));
+  var input = document.getElementById('q');
+  var empty = document.getElementById('emptyNote');
+  var activeCat = 'all';
+
+  function apply(){
+    var kw = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    books.forEach(function(b){
+      var catOk = activeCat === 'all' || b.getAttribute('data-cat') === activeCat;
+      var name = (b.getAttribute('data-name') || '').toLowerCase();
+      var text = (b.textContent || '').toLowerCase();
+      var kwOk = !kw || name.indexOf(kw) > -1 || text.indexOf(kw) > -1;
+      var ok = catOk && kwOk;
+      b.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    empty.style.display = shown ? 'none' : 'block';
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      activeCat = c.getAttribute('data-cat');
+      chips.forEach(function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      apply();
+    });
+  });
+  input.addEventListener('input', apply);
+})();
+</script>
+</body>
+    </html>
